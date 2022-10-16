@@ -33,9 +33,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			*(my_buffer->final_str) = *tmp;
-			(my_buffer->count)++;
-			(my_buffer->final_str)++;
+			update_buff(my_buffer, *tmp);
 		}
 
 		tmp++;

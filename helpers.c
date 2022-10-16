@@ -7,7 +7,6 @@
  */
 buf *init_buff()
 {
-	const int BUF_SIZE = 1024;
 	buf *my_buffer = malloc(sizeof(buf));
 
 	if (!my_buffer)
@@ -25,4 +24,24 @@ buf *init_buff()
 	my_buffer->count = 0;
 
 	return (my_buffer);
+}
+
+/**
+ * update_buff - update the buffer and/or rerset buffer if full
+ *
+ * @my_buffer: the buffer
+ * @value: value to add to buffer
+ */
+void update_buff(buf *my_buffer, char value)
+{
+	if (my_buffer->count >= BUF_SIZE)
+	{
+		write(STDOUT_FILENO, my_buffer->head, my_buffer->count);
+		my_buffer->final_str = my_buffer->head;
+		my_buffer->count = 0;
+	}
+
+	*(my_buffer->final_str) = value;
+	(my_buffer->count)++;
+	(my_buffer->final_str)++;
 }

@@ -9,14 +9,16 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	const int BUF_SIZE = 1024;
 	int parsed_chars, tmp_count;
 	char *tmp = (char *)format;
-	buf *my_buffer = malloc(sizeof(buf));
 
-	my_buffer->final_str = malloc(BUF_SIZE * sizeof(char));
-	my_buffer->head = my_buffer->final_str;
-	my_buffer->count = 0;
+	if (!format)
+		return (-1);
+
+	buf *my_buffer = init_buff();
+
+	if (!my_buffer)
+		return (-1);
 
 	va_start(args, format);
 

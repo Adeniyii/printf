@@ -12,7 +12,7 @@ buf *init_buff()
 	if (!my_buffer)
 		return (NULL);
 
-	my_buffer->final_str = malloc(BUF_SIZE * sizeof(char));
+	my_buffer->final_str = malloc(1024 * sizeof(char));
 
 	if (!my_buffer->final_str)
 	{
@@ -34,7 +34,7 @@ buf *init_buff()
  */
 void update_buff(buf *my_buffer, char value)
 {
-	if (my_buffer->count >= BUF_SIZE)
+	if (my_buffer->count >= 1024)
 	{
 		write(STDOUT_FILENO, my_buffer->head, my_buffer->count);
 		my_buffer->final_str = my_buffer->head;

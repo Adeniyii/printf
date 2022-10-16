@@ -6,8 +6,6 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-#define BUF_SIZE 1024
-
 /**
  * struct buffer - a buffer entity
  * @head: pointer to first char of `final_str`

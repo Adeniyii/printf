@@ -25,7 +25,7 @@ void convert_char(buf *my_buffer, va_list args, int *parsed_chars)
  * @args: list of variable arguments
  * @parsed_chars: pointer to variable tracking the chars parsed
  */
-void convert_percent(buf *my_buffer, va_list args, int *parsed_chars)
+void convert_percent(buf *my_buffer, __attribute__((unused)) va_list args, int *parsed_chars)
 {
 	*(my_buffer->final_str) = '%';
 	(my_buffer->count)++;

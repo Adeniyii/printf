@@ -27,9 +27,7 @@ void convert_char(buf *my_buffer, va_list args, int *parsed_chars)
  */
 void convert_percent(buf *my_buffer, __attribute__((unused)) va_list args, int *parsed_chars)
 {
-	*(my_buffer->final_str) = '%';
-	(my_buffer->count)++;
-	(my_buffer->final_str)++;
+	update_buff(my_buffer, '%');
 
 	(*parsed_chars) += 1;
 }
@@ -47,9 +45,7 @@ void convert_str(buf *my_buffer, va_list args, int *parsed_chars)
 
 	while (*value)
 	{
-		*(my_buffer->final_str) = *value;
-		(my_buffer->count)++;
-		(my_buffer->final_str)++;
+		update_buff(my_buffer, *value);
 		value++;
 	}
 

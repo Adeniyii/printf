@@ -6,6 +6,8 @@
 #include <unistd.h>
 #include <stdarg.h>
 
+#define BUF_SIZE 1024
+
 /**
  * struct buffer - a buffer entity
  * @head: pointer to first char of `final_str`
@@ -32,7 +34,9 @@ typedef struct specifier_to_func_map
 } specifier_map;
 
 /* Function declarations */
+buf *init_buff();
 int _printf(const char *format, ...);
+void update_buff(buf *my_buffer, char value);
 void convert_str(buf *my_buffer, va_list args, int *parsed_chars);
 void convert_char(buf *my_buffer, va_list args, int *parsed_chars);
 void convert_percent(buf *my_buffer, va_list args, int *parsed_chars);

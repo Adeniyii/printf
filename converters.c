@@ -14,9 +14,6 @@ int convert_char(buf *my_buffer, va_list args, int *parsed_chars)
 
 	printf("value: %c\n", value);
 
-	if (!value)
-		return (-1);
-
 	*(my_buffer->final_str) = value;
 	(my_buffer->count)++;
 	(my_buffer->final_str)++;

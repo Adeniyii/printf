@@ -9,13 +9,14 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
+	buf *my_buffer;
 	int parsed_chars, tmp_count;
 	char *tmp = (char *)format;
 
 	if (!format)
 		return (-1);
 
-	buf *my_buffer = init_buff();
+	my_buffer = init_buff();
 
 	if (!my_buffer)
 		return (-1);

@@ -13,7 +13,9 @@
 int specifier_handler(buf *my_buffer,
 		      char *specifier, va_list args, int *parsed_chars)
 {
-	int i = 0, converter_ret;
+	int i = 0;
+	int converter_ret = 0;
+
 	specifier_map specifier_list[] = {
 	    {'c', convert_char},
 	    {'s', convert_str},

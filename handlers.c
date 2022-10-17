@@ -20,6 +20,7 @@ int specifier_handler(buf *my_buffer,
 	    {'c', convert_char},
 	    {'s', convert_str},
 	    {'%', convert_percent},
+	    {'d', convert_int},
 	    {'\0', NULL}};
 
 	while (specifier_list[i].specifier)

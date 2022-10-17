@@ -64,3 +64,30 @@ int convert_str(buf *my_buffer, va_list args, int *parsed_chars)
 
 	return (0);
 }
+
+int convert_int(buf *my_buffer, va_list args, int *parsed_chars)
+{
+	int value = va_arg(args, int);
+	int i;
+	char num[] = "0123456789";
+	char hold[50];
+	char *ptr;
+	ptr = &hold[49];
+	*ptr = '\0';
+
+
+	while (value != 0)
+	{
+		*--ptr = num [value % 10];
+		value /= 10;
+	}
+
+	while (*ptr)
+	{
+		update_buff(my_buffer, *ptr);
+		ptr++;
+	}
+
+	(*parsed_chars) += 1;
+	return (0);
+}

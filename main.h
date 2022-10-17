@@ -38,6 +38,7 @@ void update_buff(buf *my_buffer, char value);
 int init_printf(const char *format, buf *my_buffer, va_list args);
 int convert_str(buf *my_buffer, va_list args, int *parsed_chars);
 int convert_char(buf *my_buffer, va_list args, int *parsed_chars);
+int convert_int(buf *my_buffer, va_list args, int *parsed_chars);
 int convert_percent(buf *my_buffer, va_list args, int *parsed_chars);
 int specifier_handler(buf *my_buffer,
 		      char *specifier, va_list args, int *parsed_chars);

@@ -13,7 +13,7 @@
 int specifier_handler(buf *my_buffer,
 		      char *specifier, va_list args, int *parsed_chars)
 {
-	int i = 0;
+	int i = 0, converter_ret;
 	specifier_map specifier_list[] = {
 	    {'c', convert_char},
 	    {'s', convert_str},
@@ -24,8 +24,8 @@ int specifier_handler(buf *my_buffer,
 	{
 		if (specifier_list[i].specifier == *specifier)
 		{
-			specifier_list[i].op(my_buffer, args, parsed_chars);
-			return (0);
+			converter_ret = specifier_list[i].op(my_buffer, args, parsed_chars);
+			return (converter_ret);
 		}
 		i++;
 	}

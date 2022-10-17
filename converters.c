@@ -6,16 +6,24 @@
  * @my_buffer: struct holding the final string and count
  * @args: list of variable arguments
  * @parsed_chars: pointer to variable tracking the chars parsed
+ * Return: (-1) if error, (0) otherwise
  */
-void convert_char(buf *my_buffer, va_list args, int *parsed_chars)
+int convert_char(buf *my_buffer, va_list args, int *parsed_chars)
 {
 	char value = va_arg(args, int);
+
+	printf("value: %c\n", value);
+
+	if (!value)
+		return (-1);
 
 	*(my_buffer->final_str) = value;
 	(my_buffer->count)++;
 	(my_buffer->final_str)++;
 
 	(*parsed_chars) += 1;
+
+	return (0);
 }
 
 /**
@@ -24,12 +32,16 @@ void convert_char(buf *my_buffer, va_list args, int *parsed_chars)
  * @my_buffer: struct holding the final string and count
  * @args: list of variable arguments
  * @parsed_chars: pointer to variable tracking the chars parsed
+ * Return: (-1) if error, (0) otherwise
  */
-void convert_percent(buf *my_buffer, __attribute__((unused)) va_list args, int *parsed_chars)
+int convert_percent(buf *my_buffer,
+		    __attribute__((unused)) va_list args, int *parsed_chars)
 {
 	update_buff(my_buffer, '%');
 
 	(*parsed_chars) += 1;
+
+	return (0);
 }
 
 /**
@@ -38,10 +50,14 @@ void convert_percent(buf *my_buffer, __attribute__((unused)) va_list args, int *
  * @my_buffer: struct holding the final string and count
  * @args: list of variable arguments
  * @parsed_chars: pointer to variable tracking the chars parsed
+ * Return: (-1) if error, (0) otherwise
  */
-void convert_str(buf *my_buffer, va_list args, int *parsed_chars)
+int convert_str(buf *my_buffer, va_list args, int *parsed_chars)
 {
 	char *value = va_arg(args, char *);
+
+	if (value == NULL)
+		return (-1);
 
 	while (*value)
 	{
@@ -50,4 +66,6 @@ void convert_str(buf *my_buffer, va_list args, int *parsed_chars)
 	}
 
 	(*parsed_chars) += 1;
+
+	return (0);
 }

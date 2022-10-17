@@ -75,8 +75,7 @@ int convert_str(buf *my_buffer, va_list args, int *parsed_chars)
  */
 int convert_int(buf *my_buffer, va_list args, int *parsed_chars)
 {
-	int value = va_arg(args, int);
-	int i;
+	unsigned int value = va_arg(args, unsigned int);
 	char num[] = "0123456789";
 	char hold[50];
 	char *ptr;

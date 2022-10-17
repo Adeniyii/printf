@@ -8,9 +8,10 @@
  * @specifier: the given specifier char
  * @args: list of variable arguments
  * @parsed_chars: pointer to variable tracking the chars parsed
+ * Return: (0) on success (-1) on failure
  */
-void specifier_handler(buf *my_buffer,
-		       char *specifier, va_list args, int *parsed_chars)
+int specifier_handler(buf *my_buffer,
+		      char *specifier, va_list args, int *parsed_chars)
 {
 	int i = 0;
 	specifier_map specifier_list[] = {
@@ -25,6 +26,7 @@ void specifier_handler(buf *my_buffer,
 		{
 			specifier_list[i].op(my_buffer, args, parsed_chars);
 		}
-		i++;
+		return (0);
 	}
+	return (-1);
 }

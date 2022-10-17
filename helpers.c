@@ -45,3 +45,14 @@ void update_buff(buf *my_buffer, char value)
 	(my_buffer->count)++;
 	(my_buffer->final_str)++;
 }
+
+/**
+ * cleanup_buff - free all allocated memory to buff
+ *
+ * @my_buffer: buffer to clean up
+ */
+void cleanup_buff(buf *my_buffer)
+{
+	free(my_buffer->head);
+	free(my_buffer);
+}

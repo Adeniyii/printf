@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	int count = _printf("%d How do the %s eat their 50%% %s these days%c\n", 221,"21", "bread", '?');
+	int count = _printf("%i How do the %s eat their 50%% %s these days%c\n", 221,"21", "bread", '?');
 	printf("\ncount: %d\n", count);
 	return (0);
 }

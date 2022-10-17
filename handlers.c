@@ -21,6 +21,7 @@ int specifier_handler(buf *my_buffer,
 	    {'s', convert_str},
 	    {'%', convert_percent},
 	    {'d', convert_int},
+	    {'i', convert_int},
 	    {'\0', NULL}};
 
 	while (specifier_list[i].specifier)

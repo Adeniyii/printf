@@ -65,6 +65,14 @@ int convert_str(buf *my_buffer, va_list args, int *parsed_chars)
 	return (0);
 }
 
+/**
+ * convert_int - handler for string `%d` specifier
+ *
+ * @my_buffer: struct holding the final string and count
+ * @args: list of variable arguments
+ * @parsed_chars: pointer to variable tracking the chars parsed
+ * Return: (-1) if error, (0) otherwise
+ */
 int convert_int(buf *my_buffer, va_list args, int *parsed_chars)
 {
 	int value = va_arg(args, int);
@@ -72,13 +80,14 @@ int convert_int(buf *my_buffer, va_list args, int *parsed_chars)
 	char num[] = "0123456789";
 	char hold[50];
 	char *ptr;
+
 	ptr = &hold[49];
 	*ptr = '\0';
 
 
 	while (value != 0)
 	{
-		*--ptr = num [value % 10];
+		*--ptr = num[value % 10];
 		value /= 10;
 	}
 

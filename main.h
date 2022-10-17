@@ -21,9 +21,8 @@ typedef struct buffer
 
 /**
  * struct specifier_to_func_map - maps specifier string to handler function
- * @head: pointer to first char of `final_str`
- * @final_str: final string to print
- * @count: number of bytes printed/to print
+ * @specifier: specifier value
+ * @op: converter function for specifier
  */
 typedef struct specifier_to_func_map
 {
@@ -33,11 +32,13 @@ typedef struct specifier_to_func_map
 
 /* Function declarations */
 buf *init_buff();
+void cleanup_buff(buf *my_buffer);
 int _printf(const char *format, ...);
 void update_buff(buf *my_buffer, char value);
 void convert_str(buf *my_buffer, va_list args, int *parsed_chars);
 void convert_char(buf *my_buffer, va_list args, int *parsed_chars);
 void convert_percent(buf *my_buffer, va_list args, int *parsed_chars);
-void specifier_handler(buf *my_buffer, char *specifier, va_list args, int *parsed_chars);
+int specifier_handler(buf *my_buffer,
+		      char *specifier, va_list args, int *parsed_chars);
 
 #endif /* MAIN_H */

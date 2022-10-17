@@ -35,6 +35,7 @@ buf *init_buff();
 void cleanup_buff(buf *my_buffer);
 int _printf(const char *format, ...);
 void update_buff(buf *my_buffer, char value);
+int init_printf(const char *format, buf *my_buffer, va_list args);
 void convert_str(buf *my_buffer, va_list args, int *parsed_chars);
 void convert_char(buf *my_buffer, va_list args, int *parsed_chars);
 void convert_percent(buf *my_buffer, va_list args, int *parsed_chars);

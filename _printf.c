@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
  * @args: variadic argument list
  * Return: the value of the handler function
  */
-int init_printf(char *format, buf *my_buffer, va_list args)
+int init_printf(const char *format, buf *my_buffer, va_list args)
 {
 	char *tmp = (char *)format;
 	int parsed_chars, handler_value;

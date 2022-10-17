@@ -25,8 +25,9 @@ int specifier_handler(buf *my_buffer,
 		if (specifier_list[i].specifier == *specifier)
 		{
 			specifier_list[i].op(my_buffer, args, parsed_chars);
+			return (0);
 		}
-		return (0);
+		i++;
 	}
 	return (-1);
 }

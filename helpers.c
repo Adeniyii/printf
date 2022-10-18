@@ -22,27 +22,29 @@ buf *init_buff()
 
 	my_buffer->head = my_buffer->final_str;
 	my_buffer->count = 0;
+	my_buffer->tmp = 0;
 
 	return (my_buffer);
 }
 
 /**
- * update_buff - update the buffer and/or rerset buffer if full
+ * update_buff - update the buffer and/or reset buffer if full
  *
  * @my_buffer: the buffer
  * @value: value to add to buffer
  */
 void update_buff(buf *my_buffer, char value)
 {
-	if (my_buffer->count >= 1024)
+	if (my_buffer->tmp == 1024)
 	{
-		write(STDOUT_FILENO, my_buffer->head, my_buffer->count);
+		write(STDOUT_FILENO, my_buffer->head, my_buffer->tmp);
 		my_buffer->final_str = my_buffer->head;
-		my_buffer->count = 0;
+		my_buffer->tmp = 0;
 	}
 
 	*(my_buffer->final_str) = value;
 	(my_buffer->count)++;
+	(my_buffer->tmp)++;
 	(my_buffer->final_str)++;
 }
 

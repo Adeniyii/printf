@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * specifier_handler - defines list of specifiers to handler map
+ * specifier_handler - defines list of specifiers-to-handler map
  * and executes the handler mamtching the `specifier` argument.
  *
  * @my_buffer: struct holding the final string and count

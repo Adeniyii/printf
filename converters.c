@@ -12,9 +12,7 @@ int convert_char(buf *my_buffer, va_list args, int *parsed_chars)
 {
 	char value = va_arg(args, int);
 
-	*(my_buffer->final_str) = value;
-	(my_buffer->count)++;
-	(my_buffer->final_str)++;
+	update_buff(my_buffer, value);
 
 	(*parsed_chars) += 1;
 

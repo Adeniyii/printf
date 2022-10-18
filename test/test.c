@@ -29,5 +29,7 @@ lobortis turpis sed pellentesque. Proin %s vehicula enim, \
 ut fermentum leo. Nunc quis enim vel urna faucibus donec%c \n",
 	    "rain", 221, "21", "bread", '?');
 	printf("\ncount: %d\n", count);
+	count = _printf("Hello %s, %c %s 50%%, %s in crypto %c", "friend", 'i', "have", "interest", '?');
+	printf("\ncount: %d\n", count);
 	return (0);
 }

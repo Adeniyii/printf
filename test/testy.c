@@ -32,12 +32,12 @@ int main(void)
     printf("String:[%s]\n", "I am a string !");
     _printf("Unsigned:[%u]\n", ui);
     printf("Unsigned:[%u]\n", ui);
-    _printf("%b\n", 98);
-/*    // _printf("Unsigned octal:[%o]\n", ui);
-    // printf("Unsigned octal:[%o]\n", ui);
-    // _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    // printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
-    // _printf("Address:[%p]\n", addr);
+    _printf("Unsigned binary:[%b]\n", ui);
+    _printf("Unsigned octal:[%o]\n", ui);
+    printf("Unsigned octal:[%o]\n", ui);
+    _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+    printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+/*    // _printf("Address:[%p]\n", addr);
     // printf("Address:[%p]\n", addr);
     // _printf("Unknown:[%r]\n");
     // printf("Unknown:[%r]\n");*/

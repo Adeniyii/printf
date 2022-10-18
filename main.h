@@ -1,7 +1,6 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MAIN_H_
+#define MAIN_H_
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdarg.h>
@@ -45,4 +44,7 @@ int specifier_handler(buf *my_buffer,
 		      char *specifier, va_list args, int *parsed_chars);
 int convert_unsint(buf *my_buffer, va_list args, int *parsed_chars);
 int convert_bin(buf *my_buffer, va_list args, int *parsed_chars);
+int convert_oct(buf *my_buffer, va_list args, int *parsed_chars);
+int convert_hex(buf *my_buffer, va_list args, int *parsed_chars);
+int convert_hexa(buf *my_buffer, va_list args, int *parsed_chars);
 #endif /* MAIN_H */

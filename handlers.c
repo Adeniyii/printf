@@ -24,6 +24,9 @@ int specifier_handler(buf *my_buffer,
 		{'i', convert_int},
 		{'u', convert_unsint},
 		{'b', convert_bin},
+		{'o', convert_oct},
+		{'x', convert_hex},
+		{'X', convert_hexa},
 		{'\0', NULL}};
 
 	while (specifier_list[i].specifier)

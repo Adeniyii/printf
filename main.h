@@ -15,6 +15,7 @@ typedef struct buffer
 {
 	char *head;
 	char *final_str;
+	unsigned int tmp;
 	unsigned int count;
 } buf;
 

@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 		return (-1);
 	}
 
-	write(STDOUT_FILENO, my_buffer->head, my_buffer->count);
+	write(STDOUT_FILENO, my_buffer->head, my_buffer->tmp);
 	tmp_count = my_buffer->count;
 	cleanup_buff(my_buffer);
 	va_end(args);

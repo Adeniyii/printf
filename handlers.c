@@ -23,6 +23,7 @@ int specifier_handler(buf *my_buffer,
 		{'d', convert_int},
 		{'i', convert_int},
 		{'u', convert_unsint},
+		{'b', convert_bin},
 		{'\0', NULL}};
 
 	while (specifier_list[i].specifier)

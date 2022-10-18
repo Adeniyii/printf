@@ -74,6 +74,7 @@ int convert_str(buf *my_buffer, va_list args, int *parsed_chars)
  * Return: (-1) if error, (0) otherwise
  */
 int convert_int(buf *my_buffer, va_list args, int *parsed_chars)
+/*converting each number to string*/
 {
 	int value = va_arg(args, int);
 	char num[] = "0123456789";
@@ -83,7 +84,8 @@ int convert_int(buf *my_buffer, va_list args, int *parsed_chars)
 	ptr = &hold[49];
 	*ptr = '\0';
 
-	if (value < 0){
+	if (value < 0)
+	{
 		value *= -1;
 		while (value != 0)
 		{
@@ -91,7 +93,8 @@ int convert_int(buf *my_buffer, va_list args, int *parsed_chars)
 			value /= 10;
 		}
 		*--ptr = '-';
-	}else
+	}
+	else
 	{
 		while (value != 0)
 		{
@@ -110,7 +113,14 @@ int convert_int(buf *my_buffer, va_list args, int *parsed_chars)
 	(*parsed_chars) += 1;
 	return (0);
 }
-
+/**
+ * convert_unsint - handler for string `%u` `%i`specifier
+ *
+ * @my_buffer: struct holding the final string and count
+ * @args: list of variable arguments
+ * @parsed_chars: pointer to variable tracking the chars parsed
+ * Return: (-1) if error, (0) otherwise
+ */
 int convert_unsint(buf *my_buffer, va_list args, int *parsed_chars)
 {
 	unsigned int value = va_arg(args, unsigned int);

@@ -43,4 +43,5 @@ int convert_percent(buf *my_buffer, va_list args, int *parsed_chars);
 int specifier_handler(buf *my_buffer,
 		      char *specifier, va_list args, int *parsed_chars);
 int convert_unsint(buf *my_buffer, va_list args, int *parsed_chars);
+int convert_bin(buf *my_buffer, va_list args, int *parsed_chars);
 #endif /* MAIN_H */

@@ -17,12 +17,13 @@ int specifier_handler(buf *my_buffer,
 	int converter_ret = 0;
 
 	specifier_map specifier_list[] = {
-	    {'c', convert_char},
-	    {'s', convert_str},
-	    {'%', convert_percent},
-	    {'d', convert_int},
-	    {'i', convert_int},
-	    {'\0', NULL}};
+		{'c', convert_char},
+		{'s', convert_str},
+		{'%', convert_percent},
+		{'d', convert_int},
+		{'i', convert_int},
+		{'u', convert_unsint},
+		{'\0', NULL}};
 
 	while (specifier_list[i].specifier)
 	{

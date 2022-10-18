@@ -66,7 +66,7 @@ int convert_str(buf *my_buffer, va_list args, int *parsed_chars)
 }
 
 /**
- * convert_int - handler for string `%d` specifier
+ * convert_int - handler for string `%d` `%i`specifier
  *
  * @my_buffer: struct holding the final string and count
  * @args: list of variable arguments
@@ -75,7 +75,7 @@ int convert_str(buf *my_buffer, va_list args, int *parsed_chars)
  */
 int convert_int(buf *my_buffer, va_list args, int *parsed_chars)
 {
-	unsigned int value = va_arg(args, unsigned int);
+	int value = va_arg(args, int);
 	char num[] = "0123456789";
 	char hold[50];
 	char *ptr;
@@ -83,6 +83,43 @@ int convert_int(buf *my_buffer, va_list args, int *parsed_chars)
 	ptr = &hold[49];
 	*ptr = '\0';
 
+	if (value < 0){
+		value *= -1;
+		while (value != 0)
+		{
+			*--ptr = num[value % 10];
+			value /= 10;
+		}
+		*--ptr = '-';
+	}else
+	{
+		while (value != 0)
+		{
+			*--ptr = num[value % 10];
+			value /= 10;
+		}
+	}
+
+	while (*ptr)
+	{
+		update_buff(my_buffer, *ptr);
+		ptr++;
+	}
+
+
+	(*parsed_chars) += 1;
+	return (0);
+}
+
+int convert_unsint(buf *my_buffer, va_list args, int *parsed_chars)
+{
+	unsigned int value = va_arg(args, unsigned int);
+	char num[] = "0123456789";
+	char hold[50];
+	char *ptr;
+
+	ptr = &hold[49];
+	*ptr = '\0';
 
 	while (value != 0)
 	{

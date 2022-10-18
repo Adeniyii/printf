@@ -27,6 +27,7 @@ int specifier_handler(buf *my_buffer,
 		{'o', convert_oct},
 		{'x', convert_hex},
 		{'X', convert_hexa},
+		{'p', convert_addr},
 		{'\0', NULL}};
 
 	while (specifier_list[i].specifier)

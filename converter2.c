@@ -39,7 +39,7 @@ int convert_bin(buf *my_buffer, va_list args, int *parsed_chars)
 }
 
 /**
- * convert_bin - handler for string `%b` `%i`specifier
+ * convert_oct - handler for string `%o` `%i`specifier
  *
  * @my_buffer: struct holding the final string and count
  * @args: list of variable arguments
@@ -75,6 +75,15 @@ int convert_oct(buf *my_buffer, va_list args, int *parsed_chars)
 	(*parsed_chars) += 1;
 	return (0);
 }
+/**
+ * convert_hex - handler for string `%x` `%i`specifier
+ *
+ * @my_buffer: struct holding the final string and count
+ * @args: list of variable arguments
+ * @parsed_chars: pointer to variable tracking the chars parsed
+ * Return: (-1) if error, (0) otherwise
+ */
+
 int convert_hex(buf *my_buffer, va_list args, int *parsed_chars)
 {
 	unsigned int value = va_arg(args, unsigned int);
@@ -104,6 +113,15 @@ int convert_hex(buf *my_buffer, va_list args, int *parsed_chars)
 	(*parsed_chars) += 1;
 	return (0);
 }
+/**
+ * convert_hexa - handler for string `%X` `%i`specifier
+ *
+ * @my_buffer: struct holding the final string and count
+ * @args: list of variable arguments
+ * @parsed_chars: pointer to variable tracking the chars parsed
+ * Return: (-1) if error, (0) otherwise
+ */
+
 int convert_hexa(buf *my_buffer, va_list args, int *parsed_chars)
 {
 	unsigned int value = va_arg(args, unsigned int);

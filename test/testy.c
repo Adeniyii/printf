@@ -39,6 +39,8 @@ int main(void)
     printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
     _printf("Address:[%p]\n", addr);
     printf("Address:[%p]\n", addr);
+    _printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+    printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
 /*    // _printf("Unknown:[%r]\n");
     // printf("Unknown:[%r]\n");*/
     return (0);

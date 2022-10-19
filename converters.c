@@ -78,21 +78,34 @@ int convert_int(buf *my_buffer, va_list args, int *parsed_chars)
 	char num[] = "0123456789";
 	char hold[50];
 	char *ptr;
+	int fig;
 
 	ptr = &hold[49];
 	*ptr = '\0';
 
-	if (value < 0)
+	if (value == 0)
 	{
+		*ptr = num[value];
+	}
+	else if (value < 0)
+	{
+		if (value == INT_MIN)
+		{
+			fig = value % 10;
+			fig *= -1;
+			value = value / 10;
+			*ptr = num[fig];
+		}
+
 		value *= -1;
 		while (value != 0)
 		{
 			*--ptr = num[value % 10];
 			value /= 10;
 		}
+
 		*--ptr = '-';
-	}
-	else
+	}else
 	{
 		while (value != 0)
 		{

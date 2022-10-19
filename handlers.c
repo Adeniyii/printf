@@ -8,7 +8,7 @@
  * @specifier: the given specifier char
  * @args: list of variable arguments
  * @parsed_chars: pointer to variable tracking the chars parsed
- * Return: (0) on success (-1) on failure
+ * Return: (0) on success (-1) on failure / no matching specifier
  */
 int specifier_handler(buf *my_buffer,
 		      char *specifier, va_list args, int *parsed_chars)

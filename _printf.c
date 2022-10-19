@@ -60,17 +60,14 @@ int init_printf(const char *format, buf *my_buffer, va_list args)
 		{
 			handler_value = specifier_handler(my_buffer, tmp + 1, args, &parsed_chars);
 
-			if (handler_value < 0)
-				return (-1);
-
-			tmp += parsed_chars;
+			if (handler_value >= 0)
+			{
+				tmp += (parsed_chars + 1);
+				continue;
+			}
 		}
-		else
-		{
-			update_buff(my_buffer, *tmp);
-		}
-
+		update_buff(my_buffer, *tmp);
 		tmp++;
 	}
-	return (handler_value);
+	return (0);
 }

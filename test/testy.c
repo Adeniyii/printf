@@ -1,7 +1,83 @@
 #include "../main.h"
 #include <limits.h>
 #include <stdio.h>
+#include <stdlib.h>
 
+int man(void)
+{
+	int len, len2;
+
+	len = _printf("%d", 0);
+	len2 = printf("%d", 0);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	return (0);
+}
+int ma(void)
+{
+	int len, len2;
+
+	len = _printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	len2 = printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	return (0);
+}
+int mainy(void)
+{
+	int len, len2;
+
+	len = _printf("%i + %i = %i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	len2 = printf("%i + %i = %i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	return (0);
+}
+int mains(void)
+{
+	int len, len2;
+
+	len = _printf("%i", INT_MIN);
+	len2 = printf("%i", INT_MIN);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	return (0);
+}
+int m(void)
+{
+	int len, len2;
+
+	len = _printf("%i", 0);
+	len2 = printf("%i", 0);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	return (0);
+}
 /**
  * @brief main func
  *
@@ -32,7 +108,7 @@ int main(void)
     printf("String:[%s]\n", "I am a string !");
     _printf("Unsigned:[%u]\n", ui);
     printf("Unsigned:[%u]\n", ui);
-    _printf("Unsigned binary:[%b]\n", ui);
+    _printf("Unsigned binary:[%b]\n", 0);
     _printf("Unsigned octal:[%o]\n", ui);
     printf("Unsigned octal:[%o]\n", ui);
     _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);

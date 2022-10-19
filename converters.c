@@ -72,22 +72,13 @@ int convert_str(buf *my_buffer, va_list args, int *parsed_chars)
  * Return: (-1) if error, (0) otherwise
  */
 int convert_int(buf *my_buffer, va_list args, int *parsed_chars)
-/*converting each number to string*/
 {
-	int value = va_arg(args, int);
-	char num[] = "0123456789";
-	char hold[50];
-	char *ptr;
-	int fig;
+	int fig, value = va_arg(args, int);
+	char num[] = "0123456789", hold[50], *ptr;
 
 	ptr = &hold[49];
 	*ptr = '\0';
-
-	if (value == 0)
-	{
-		*ptr = num[value];
-	}
-	else if (value < 0)
+	if (value < 0)
 	{
 		if (value == INT_MIN)
 		{
@@ -96,34 +87,29 @@ int convert_int(buf *my_buffer, va_list args, int *parsed_chars)
 			value = value / 10;
 			*ptr = num[fig];
 		}
-
 		value *= -1;
 		while (value != 0)
 		{
 			*--ptr = num[value % 10];
 			value /= 10;
-		}
-
-		*--ptr = '-';
-	}else
+		} *--ptr = '-';
+	} else
 	{
-		while (value != 0)
-		{
+		do {
+
 			*--ptr = num[value % 10];
 			value /= 10;
-		}
+		} while (value != 0);
 	}
-
 	while (*ptr)
 	{
 		update_buff(my_buffer, *ptr);
 		ptr++;
 	}
-
-
 	(*parsed_chars) += 1;
 	return (0);
 }
+
 /**
  * convert_unsint - handler for string `%u` `%i`specifier
  *

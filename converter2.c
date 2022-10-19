@@ -19,13 +19,12 @@ int convert_bin(buf *my_buffer, va_list args, int *parsed_chars)
 	ptr = &hold[49];
 	*ptr = '\0';
 
-	while (value != 0) /*converting value to base 2 and turn*/
-	/* the number to string*/
-	{
+	do {
 		i = value % 2;
 		value = value / 2;
 		*--ptr = num[i];
-	}
+	} while (value != 0); /*converting value to base 2 and turn*/
+	/* the number to string*/
 
 	while (*ptr) /*sending ptr to buffer so it can be printed*/
 	{
@@ -152,7 +151,7 @@ int convert_hexa(buf *my_buffer, va_list args, int *parsed_chars)
 	return (0);
 }
 /**
- * convert_hexa - handler for string `%X` `%i`specifier
+ * convert_addr - handler for string `%p` `%i`specifier
  *
  * @my_buffer: struct holding the final string and count
  * @args: list of variable arguments

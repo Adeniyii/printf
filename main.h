@@ -12,6 +12,7 @@
  * @head: pointer to first char of `final_str`
  * @final_str: final string to print
  * @count: number of bytes printed/to print
+ * @tmp: buffer size monitor printed/to print
  */
 typedef struct buffer
 {

@@ -123,12 +123,45 @@ int m(void)
 	return (0);
 }
 
-int main(void)
+int maint(void)
 {
 	int len, len2;
 
 	len = _printf("%d", INT_MIN);
 	len2 = printf("%d", INT_MIN);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	return (0);
+}
+
+int makin(void)
+{
+	int len, len2;
+	void *p = (void *)-1;
+
+	len = _printf("Can you print an address?\n%p\nNice!\n", p);
+	len2 = printf("Can you print an address?\n%p\nNice!\n", p);
+	fflush(stdout);
+	if (len != len2)
+	{
+		printf("Lengths differ.\n");
+		fflush(stdout);
+		return (1);
+	}
+	return (0);
+}
+
+int main(void)
+{
+	int len, len2;
+
+	len = _printf("%p\n", NULL);
+	len2 = printf("%p\n", NULL);
 	fflush(stdout);
 	if (len != len2)
 	{

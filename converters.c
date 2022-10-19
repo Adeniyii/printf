@@ -128,11 +128,10 @@ int convert_unsint(buf *my_buffer, va_list args, int *parsed_chars)
 	ptr = &hold[49];
 	*ptr = '\0';
 
-	while (value != 0)
-	{
+	do {
 		*--ptr = num[value % 10];
 		value /= 10;
-	}
+	} while (value != 0);
 
 	while (*ptr)
 	{

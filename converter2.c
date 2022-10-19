@@ -55,14 +55,12 @@ int convert_oct(buf *my_buffer, va_list args, int *parsed_chars)
 
 	ptr = &hold[49];
 	*ptr = '\0';
-
-	while (value != 0) /*converting value to base 2 and turn*/
-	/* the number to string*/
-	{
+	do {
 		i = value % 8;
 		value = value / 8;
 		*--ptr = num[i];
-	}
+	} while (value != 0); /*converting value to base 2 and turn*/
+	/* the number to string*/
 
 	while (*ptr) /*sending ptr to buffer so it can be printed*/
 	{
@@ -94,13 +92,12 @@ int convert_hex(buf *my_buffer, va_list args, int *parsed_chars)
 	ptr = &hold[49];
 	*ptr = '\0';
 
-	while (value != 0) /*converting value to base 2 and turn*/
-	/* the number to string*/
-	{
+	do {
 		i = value % 16;
 		value = value / 16;
 		*--ptr = num[i];
-	}
+	} while (value != 0); /*converting value to base 2 and turn*/
+	/* the number to string*/
 
 	while (*ptr) /*sending ptr to buffer so it can be printed*/
 	{
@@ -132,13 +129,12 @@ int convert_hexa(buf *my_buffer, va_list args, int *parsed_chars)
 	ptr = &hold[49];
 	*ptr = '\0';
 
-	while (value != 0) /*converting value to base 2 and turn*/
-	/* the number to string*/
-	{
+	do {
 		i = value % 16;
 		value = value / 16;
 		*--ptr = num[i];
-	}
+	} while (value != 0); /*converting value to base 2 and turn*/
+	/* the number to string*/
 
 	while (*ptr) /*sending ptr to buffer so it can be printed*/
 	{

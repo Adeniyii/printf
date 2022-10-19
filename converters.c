@@ -88,8 +88,7 @@ int convert_int(buf *my_buffer, va_list args, int *parsed_chars)
 			*ptr = num[fig];
 		}
 		value *= -1;
-		do
-		{
+		do {
 			*--ptr = num[value % 10];
 			value /= 10;
 		} while (value != 0);

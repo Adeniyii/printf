@@ -60,6 +60,9 @@ int init_printf(const char *format, buf *my_buffer, va_list args)
 		{
 			handler_value = specifier_handler(my_buffer, tmp + 1, args, &parsed_chars);
 
+			if (*tmp + 1 == '\0')
+				return (-1);
+
 			if (handler_value >= 0)
 			{
 				tmp += (parsed_chars + 1);

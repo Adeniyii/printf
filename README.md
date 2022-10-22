@@ -4,11 +4,11 @@ A formatted output conversion C program completed as part of the low-level progr
 
 **Prototype:** ```int _printf(const char *, ...);```
 
-## Dependencies :couple:
+## Dependencies
 
 The `_printf` function was coded on an Ubuntu 20.04.1 LTS machine with `gcc` version 9.4.0.
 
-## Usage :running:
+## Usage
 
 To use the `_printf` function, assuming the above dependencies have been installed,
 compile all `.c` files in the repository and include the header `main.h` with
@@ -24,6 +24,47 @@ int main(void)
     return (0);
 }
 ```
+
+Compilation:
+
+```bash
+$ gcc *.c -o printf
+$
+```
+
+Output:
+
+```bash
+$ ./tester
+Hello, World!
+$
+```
+
+## Description
+
+The function `_printf` writes a formatted string to standard output.
+The function interpolates variable arguments (accessed via the variable-length argument facilities of `stdarg`)
+into the format string at the location of a corresponding conversion specifier.
+
+Prototype: `int _printf(const char *format, ...);`
+
+### Return Value
+
+Upon successful return, `_printf` returns the number of characters printed
+(excluding the terminating null byte used to end output to strings). If an
+output error is encountered, the function returns `-1`.
+
+### Format of the Argument String
+
+The `format` string argument is a constant character string composed of zero
+or more directives: ordinary characters (not `%`) which are copied unchanged
+to the output stream; and conversion specifications, each of which results in
+fetching zero or more subsequent arguments. Conversion specification is
+introduced by the character `%` and ends with a conversion specifier. In
+between the `%` character and conversion specifier, there may be (in order)
+zero or more _flags_, an optional minimum _field width_, an optional
+_precision_ and an optional _length_ modifier. The arguments must correspond
+with the conversion specifier, and are used in the order given.
 
 ## Examples
 

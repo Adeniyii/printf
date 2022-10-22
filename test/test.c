@@ -32,7 +32,8 @@ int main(void)
 
 	int count = _printf("%K\n");
 	int count2 = printf("%K\n");
-	int count3 = printf("%");
+	int count3 = _printf("%");
+	printf("%");
 	printf("\ncount: %d\n", count);
 	printf("\ncount2: %d\n", count2);
 	printf("\ncount3: %d\n", count3);

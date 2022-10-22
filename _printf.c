@@ -21,7 +21,6 @@ int _printf(const char *format, ...)
 		return (-1);
 
 	va_start(args, format);
-
 	printf_ret = init_printf(format, my_buffer, args);
 
 	if (printf_ret < 0)
@@ -58,10 +57,10 @@ int init_printf(const char *format, buf *my_buffer, va_list args)
 
 		if (*tmp == '%')
 		{
-			handler_value = specifier_handler(my_buffer, tmp + 1, args, &parsed_chars);
-
-			if (*tmp + 1 == '\0')
+			if (*(tmp + 1) == '\0')
 				return (-1);
+
+			handler_value = specifier_handler(my_buffer, tmp + 1, args, &parsed_chars);
 
 			if (handler_value >= 0)
 			{

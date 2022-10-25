@@ -58,3 +58,22 @@ void cleanup_buff(buf *my_buffer)
 	free(my_buffer->head);
 	free(my_buffer);
 }
+
+/**
+ * get_int_len - Get the length of an integer
+ *
+ * @value: integer to evaluate
+ * Return: leength of the integer
+ */
+int get_int_len(int value)
+{
+	int len = 1;
+
+	while (value > 9)
+	{
+		len++;
+		value /= 10;
+	}
+
+	return (len);
+}

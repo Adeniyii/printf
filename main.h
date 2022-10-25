@@ -35,9 +35,11 @@ typedef struct specifier_to_func_map
 
 /* Function declarations */
 buf *init_buff();
+int get_int_len(int value);
 void cleanup_buff(buf *my_buffer);
 int _printf(const char *format, ...);
 void update_buff(buf *my_buffer, char value);
+int recursively_add_to_buffer(int len, int val, buf *my_buffer);
 int init_printf(const char *format, buf *my_buffer, va_list args);
 int convert_str(buf *my_buffer, va_list args, int *parsed_chars);
 int convert_char(buf *my_buffer, va_list args, int *parsed_chars);

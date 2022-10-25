@@ -30,12 +30,18 @@ int main(void)
 	// 	    "rain", 221, "21", "bread", '?');
 	// 	printf("\ncount: %d\n", count);
 
-	int count = _printf("%K\n");
-	int count2 = printf("%K\n");
-	int count3 = _printf("%");
-	printf("%");
-	printf("\ncount: %d\n", count);
-	printf("\ncount2: %d\n", count2);
-	printf("\ncount3: %d\n", count3);
+	// int count = _printf("%K\n");
+	// int count2 = printf("%K\n");
+	// int count3 = _printf("%");
+	// printf("%");
+	// printf("\ncount: %d\n", count);
+	// printf("\ncount2: %d\n", count2);
+	// printf("\ncount3: %d\n", count3);
+	// _printf("max: %d\n", INT_MAX + 1024);
+	// printf("max2: %d\n", INT_MAX + 1024);
+	_printf("main %i + %i = %i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	printf("second %i + %i = %i\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	printf("MAX: %d\n", INT_MAX);
+	printf("MIN: %d\n", INT_MIN);
 	return (0);
 }
